@@ -64,7 +64,7 @@
 	<div class="container vid" in:fade={{delay:1000}}>
 		<!---->
 		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QdStKZkNWm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-		<div id="player" data-plyr-provider="youtube" data-plyr-embed-id="0tgVXTNiQOM"></div>
+		<div id="player" data-plyr-provider="youtube" data-plyr-embed-id="4uTisAF7J1c"></div>
 	</div>
 	{/if}
 	<!-- Plyr resources and browser polyfills are specified in the pen settings -->
@@ -105,11 +105,13 @@
 		margin-top:1.5rem;
 	}
 	:global(.ytp-button) {
-		opacity: 0;
+		opacity: 0!important;
 	}
+	/*
 	.vid {
 		clip-path: inset(100px 0 0 0px);
 	}
+	*/
 
 
 </style>
