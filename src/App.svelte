@@ -1,6 +1,6 @@
 <script>
 	//https://www.youtube.com/watch?v=QdStKZkNWm4
-	import Plyr from 'plyr';
+	//import Plyr from 'plyr';
 	import SparkMD5 from 'spark-md5';
 	import { fade,fly } from 'svelte/transition';
 
@@ -19,18 +19,18 @@
 	let checkPwd = () => {
 		good = SparkMD5.hash(pass) === "35038d9b000045edd73fd3134fa45c4a";
 		okpass = true;
-		setTimeout(() => loadPlay(), 500);
+		//setTimeout(() => loadPlay(), 500);
 	}
-
+/*
 	let loadPlay = async()=> {
 		player = new Plyr('#player', {autoplay : true, controls : ['current-time', 'volume', 'mute'],  youtube :
-			{ rel: 0, modestbranding: 1, controls : 2, autplay : 1 }
+			{ rel: 0, modestbranding: 1, controls : 0, autplay : 1 }
 		});
 		player.play();
 		//[...document.querySelectorAll('ytp-button')].forEach(el => { el.style.opacity = 0 });
 		
 	};
-
+*/
 </script>
 
 <main>
@@ -63,7 +63,8 @@
 	<div class="container vid" in:fade={{delay:1000}}>
 		<!---->
 		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QdStKZkNWm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-		<div id="player" data-plyr-provider="youtube" data-plyr-embed-id="pv8jmga9uvQ/"></div>
+		<!-- <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="pv8jmga9uvQ/"></div> -->
+		<iframe src="https://player.castr.com/live_40ad681076e411ec9415d32a788dbfab" width="590" height="431" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 	</div>
 	{/if}
 	<!-- Plyr resources and browser polyfills are specified in the pen settings -->
