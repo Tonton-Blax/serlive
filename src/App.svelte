@@ -1,46 +1,25 @@
 <script>
-	//https://www.youtube.com/watch?v=QdStKZkNWm4
-	//import Plyr from 'plyr';
 	import SparkMD5 from 'spark-md5';
 	import { fade,fly } from 'svelte/transition';
 
-	let player, okpass, pass, good = true;
-	//const hexHash = SparkMD5.hash('@voeux2022@');
-	document.body.addEventListener("copy", function(e){
-			console.log("chouette");
-				e.preventDefault();
-				e.stopPropagation();
-		});
-				document.body.addEventListener("cut", function(e){
-				e.preventDefault();
-				e.stopPropagation();
-		});
+	let okpass=false, pass, good = true;
 
 	let checkPwd = () => {
-		good = SparkMD5.hash(pass) === "35038d9b000045edd73fd3134fa45c4a";
+		good = SparkMD5.hash(pass) === "1074933385f0940596363e3692459911";
 		okpass = true;
-		//setTimeout(() => loadPlay(), 500);
 	}
-/*
-	let loadPlay = async()=> {
-		player = new Plyr('#player', {autoplay : true, controls : ['current-time', 'volume', 'mute'],  youtube :
-			{ rel: 0, modestbranding: 1, controls : 0, autplay : 1 }
-		});
-		player.play();
-		//[...document.querySelectorAll('ytp-button')].forEach(el => { el.style.opacity = 0 });
-		
-	};
-*/
+
 </script>
 
 <main>
 	<div class="flexman">
 		<img src='logo-servair.png' alt="logo servair" class="logo">
-		<h2 style="padding-top:3vh;">Lorem ipsum</h2>
-		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore</p>
 	</div>
-
 	{#if !okpass}
+	<div class="flexman">
+			<h2 style="padding-top:3vh;">Voeux d'Alexis Frantz</h2>
+			<p>Rendez-vous sur cette page, le mardi 25 Janvier, à 14H00</p>
+	</div>
 	<div class="container" out:fly>
 		<div class="row">
 		  <div class="column"></div>
@@ -60,14 +39,18 @@
 		</div>	  
 	  </div>
 	{:else}
-	<div class="container vid" in:fade={{delay:1000}}>
-		<!---->
-		<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/QdStKZkNWm4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-		<!-- <div id="player" data-plyr-provider="youtube" data-plyr-embed-id="pv8jmga9uvQ/"></div> -->
-		<iframe src="https://player.castr.com/live_40ad681076e411ec9415d32a788dbfab" width="590" height="431" frameborder="0" scrolling="no" allow="autoplay" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
+	<div class="container-iframe vid" in:fade={{delay:1000}}>
+		<!-- svelte-ignore a11y-missing-attribute -->
+		<iframe 
+		src="https://player.castr.com/live_40ad681076e411ec9415d32a788dbfab" 
+		width="590" 
+		height="431" 
+		frameborder="0" 
+		scrolling="no" 
+		allow="autoplay" 
+		allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 	</div>
 	{/if}
-	<!-- Plyr resources and browser polyfills are specified in the pen settings -->
 </main>
 
 <style>
@@ -104,14 +87,22 @@
 	form {
 		margin-top:1.5rem;
 	}
-	:global(.ytp-button) {
-		opacity: 0;
-	}
-	/*
-	.vid {
-		clip-path: inset(100px 0 0 0px);
-	}
-	*/
 
+	.container-iframe {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+	}
+
+	iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+	}
 
 </style>
