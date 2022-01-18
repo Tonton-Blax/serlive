@@ -5,8 +5,11 @@
 	let okpass=false, pass, good = true;
 
 	let checkPwd = () => {
-		good = SparkMD5.hash(pass) === "1074933385f0940596363e3692459911";
-		okpass = true;
+		okpass = SparkMD5.hash(pass) === "1074933385f0940596363e3692459911";
+		good = false;
+		setTimeout(()=>good = true, 2500);
+		pass = undefined;
+		//okpass = true;
 	}
 
 </script>
