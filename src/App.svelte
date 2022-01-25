@@ -21,7 +21,7 @@
 	{#if !okpass}
 	<div class="flexman">
 			<h2 style="padding-top:3vh;">Voeux d'Alexis Frantz</h2>
-			<p>Rendez-vous sur cette page, le mardi 25 Janvier, à 14H00</p>
+			<p>Rendez-vous sur cette page, le mardi 25 Janvier, à 15H00</p>
 	</div>
 	<div class="container" out:fly>
 		<div class="row">
